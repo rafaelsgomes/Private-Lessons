@@ -1,0 +1,45 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1511629091441-ee46146481b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+      "name": "Carlos Silva",
+      "birth": 274665600000,
+      "formation": "doutorado",
+      "modality": "EAD",
+      "subjects": "arquitetura, administração",
+      "created_at": 1594755650442
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1518556336318-c8de4355ccab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=332&q=80",
+      "name": "José Luiz Da Silva",
+      "birth": -299808000000,
+      "formation": "doutorado",
+      "modality": "Presencial",
+      "subjects": "português, literatura",
+      "created_at": 1594755747746
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://images.unsplash.com/photo-1583468991267-3f068b607ae1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=613&q=80",
+      "name": "Andreia Santos",
+      "birth": 429926400000,
+      "formation": "mestrado",
+      "modality": "EAD",
+      "subjects": "matemática, cálculo",
+      "created_at": 1595720185524
+    }
+  ],
+  "students": [
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1586448983330-d03f696c8271?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+      "name": "Lucinda José",
+      "email": "lucindajose@contato.com.br",
+      "birth": 836784000000,
+      "schoolyear": "2M",
+      "workload": "15"
+    }
+  ]
+}

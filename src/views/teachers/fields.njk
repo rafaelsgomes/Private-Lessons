@@ -1,0 +1,42 @@
+<div class="item">
+    <div>Foto do(a) professor(a)</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value='{{teacher.avatar_url}}'>
+    </div>                 
+</div>
+<div class="item">
+    <div>Nome do(a) professor(a)</div>
+    <div>
+        <input type="text" name="name" placeholder="Digite o nome do(a) professor(a)" value='{{teacher.name}}'>
+    </div>                 
+</div>
+<div class="item">
+    <div>Data de Nascimento</div>
+    <div>
+        <input type="date" name="birth" value='{{teacher.birth}}'>
+    </div>                 
+</div>
+<div class="item">
+    <div>Formação</div>
+    <div>
+        <select name="formation">
+            <option value="medio" {% if teacher.formation == 'medio' %} selected {% endif %}>Ensino Médio</option>
+            <option value="superior" {% if teacher.formation == 'superior' %} selected {% endif %}>Ensino Superior</option>
+            <option value="mestrado" {% if teacher.formation == 'mestrado' %} selected {% endif %}>Mestrado</option>
+            <option value="doutorado" {% if teacher.formation == 'doutorado' %} selected {% endif %}>Doutorado</option>
+        </select>
+    </div>                 
+</div>
+<div class="item">
+    <div>Modalidade</div>
+    <div>
+        <span><input type="radio" name="modality" value="EAD" {% if teacher.modality == 'EAD' %} checked {% endif %}>EAD</span>
+        <span><input type="radio" name="modality" value="Presencial" {% if teacher.modality == 'Presencial' %} checked {% endif %}>Presencial</span>
+    </div>                 
+</div>
+<div class="item">
+    <div>Aulas</div>
+    <div>
+        <input type="text" name="subjects" placeholder="Digite as matérias de ensino do(a) professor(a) separando por vírgulas" value='{{teacher.subjects}}'>
+    </div>                 
+</div>

@@ -1,0 +1,48 @@
+<div class="item">
+    <div>Foto do(a) Aluno(a)</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value='{{student.avatar_url}}'>
+    </div>
+</div>
+<div class="item">
+    <div>Nome do(a) Aluno(a)</div>
+    <div>
+        <input type="text" name="name" placeholder="Digite o nome do(a) Aluno(a)" value='{{student.name}}'>
+    </div>
+</div>
+<div class="item">
+    <div>Email do(a) Aluno(a)</div>
+    <div>
+        <input type="emal" name="email" placeholder="aluno@exemplo.com" value='{{student.email}}'>
+    </div>
+</div>
+<div class="item">
+    <div>Data de Nascimento</div>
+    <div>
+        <input type="date" name="birth" value='{{student.birth}}'>
+    </div>
+</div>
+<div class="item">
+    <div>Ano Escolar</div>
+    <select name="schoolyear">
+        <option>Selecione o Ano Escolar do(a) Aluno(a)</option>
+        <optgroup label='Ensino Fundamental'>
+            <option value="5F" {% if student.schoolyear == '5F' %} selected {% endif %} >5º Ano Ensino Fundamental</option>
+            <option value="6F" {% if student.schoolyear == '6F' %} selected {% endif %} >6º Ano Ensino Fundamental</option>
+            <option value="7F" {% if student.schoolyear == '7F' %} selected {% endif %} >7º Ano Ensino Fundamental</option>
+            <option value="8F" {% if student.schoolyear == '8F' %} selected {% endif %} >8º Ano Ensino Fundamental</option>
+        </optgroup>
+        <optgroup label='Ensino Médio'>
+            <option value="1M" {% if student.schoolyear == '1M' %} selected {% endif %} >1º Ano Ensino Médio</option>
+            <option value="2M" {% if student.schoolyear == '2M' %} selected {% endif %} >2º Ano Ensino Médio</option>
+            <option value="3M" {% if student.schoolyear == '3M' %} selected {% endif %} >3º Ano Ensino Médio</option>
+        </optgroup>
+    </select>
+</div>
+<div class="item">
+    <div>Carga Horária</div>
+    <div>
+        <input type="number" name="workload" value='{{student.workload}}'>
+    </div>
+
+</div>
