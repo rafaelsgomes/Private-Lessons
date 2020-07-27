@@ -26,7 +26,7 @@ Este projeto foi criado durante as atividades do **Bootcamp LaunchBase**.
  #### Clone ou faça o download desse repositório:
 
 ```bash
-$ git clone https://github.com/ 
+$ git clone https://github.com/rafaelsgomes/Private-Lessons.git
 ```
 
  #### Acesse o diretório raiz e faça a instalação:
