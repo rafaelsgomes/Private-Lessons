@@ -13,6 +13,7 @@ Este projeto foi criado durante as atividades do **Bootcamp LaunchBase**.
 
  - [Node.js](https://nodejs.org/en/)
  - [Express](https://expressjs.com/)
+ - [PostgreSQL](https://www.postgresql.org/)
  - [Nunjucks](https://mozilla.github.io/nunjucks/)
  - [method-override](https://github.com/expressjs/method-override)
  - [browser-sync](https://github.com/Browsersync/browser-sync)
@@ -26,7 +27,7 @@ Este projeto foi criado durante as atividades do **Bootcamp LaunchBase**.
  #### Clone ou faça o download desse repositório:
 
 ```bash
-$ git clone https://github.com/ 
+$ git clone https://github.com/rafaelsgomes/Private-Lessons.git
 ```
 
  #### Acesse o diretório raiz e faça a instalação:

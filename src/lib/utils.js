@@ -1,5 +1,5 @@
 module.exports = {
-    age: (timestamp)=>{
+    age(timestamp){
         const today = new Date()
         const birth =  new Date(timestamp)
 
@@ -11,7 +11,7 @@ module.exports = {
 
         return age
     },
-    formation: (event)=>{
+    formation(event){
         switch(event){
             case 'medio':
                 return `Ensino Médio Completo`
@@ -23,7 +23,7 @@ module.exports = {
                 return `Doutorado`
         }
     },
-    date: (timestamp)=>{
+    date(timestamp){
         const birth = new Date(timestamp)
 
         const year = birth.getFullYear()
@@ -35,11 +35,12 @@ module.exports = {
             month,
             year,
             iso: `${year}-${month}-${day}`,
-            birthDay: `${day}/${month}`
+            birthDay: `${day}/${month}`,
+            format: `${day}/${month}/${year}`
         }
 
     },
-    grade: (schoolyear)=>{
+    grade(schoolyear){
         let schoolYear = schoolyear
         if(schoolYear.slice('-1') == 'F'){
             return schoolYear = schoolyear.replace('F', 'º Ano Ensino Fundamental')

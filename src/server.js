@@ -12,7 +12,7 @@ server.use(routes)
 
 server.set('view engine', 'njk')
 
-nunjucks.configure('src/views', {
+nunjucks.configure('src/app/views', {
     express: server,
     noCache: false,
     autoescape: false
@@ -20,6 +20,4 @@ nunjucks.configure('src/views', {
 
 
 
-server.listen(3333, function(){
-    console.log('server is runing')
-})
+server.listen(3333)
