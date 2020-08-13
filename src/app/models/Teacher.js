@@ -3,7 +3,10 @@ const db = require('../../config/db')
 
 module.exports = {
     index(callback){
-        db.query(`SELECT * FROM teachers`, (err, results)=>{
+        db.query(`SELECT teachers.*, count(students) AS total_students FROM teachers
+        LEFT JOIN students ON (teachers.id = students.teacher_id)
+        GROUP BY teachers.id
+        ORDER BY total_students DESC`, (err, results)=>{
             if(err) throw `Database error ${err}`
 
             callback(results.rows)
@@ -40,6 +43,17 @@ module.exports = {
             if(err) throw `Database error ${err}`
 
             callback(results.rows[0])
+        })
+    },
+    filter(filter, callback){
+        db.query(`SELECT teachers.*, count(students) AS total_students FROM teachers
+        LEFT JOIN students ON (teachers.id = students.teacher_id)
+        WHERE teachers.name ILIKE '%${filter}%' OR teachers.subjects ILIKE '%${filter}%'
+        GROUP BY teachers.id
+        `, (err, results)=>{
+            if(err) throw `Database error ${err}`
+
+            callback(results.rows)
         })
     },
     update(data, callback){

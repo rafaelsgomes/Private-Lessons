@@ -18,7 +18,10 @@ module.exports = {
     },
     // Route to the page to create a new student
     create(req, res){
-        return res.render('students/create')
+        Student.teacherOptions((options)=>{
+            return res.render('students/create', {teachers: options})
+        })
+        
     },
     // Creates a new student with the data in the form in the page
     post(req, res){
@@ -45,7 +48,9 @@ module.exports = {
         Student.find(req.params.id, (student)=>{
 
             student.birth = date(student.birth_date).iso
-            return res.render(`students/edit`, {student})
+            Student.teacherOptions((options)=>{
+                return res.render('students/edit', {student, teachers: options})
+            })
         })
     },
     // Makes the changes on the student with the updated data in the form

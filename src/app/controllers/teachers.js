@@ -4,9 +4,17 @@ const Teacher = require("../models/Teacher")
 module.exports = {
     // Displays the teachers on the home page
     index(req, res){
-        Teacher.index((teachers)=>{
-            return res.render('teachers/index', {teachers})
-        })
+        const {filter} = req.query
+
+        if(filter){
+            Teacher.filter(filter, (teachers)=>{
+                return res.render('teachers/index', {teachers, filter})
+            })
+        }else{
+            Teacher.index((teachers)=>{
+                return res.render('teachers/index', {teachers})
+            })
+        }
     },
     // Route to the page to create a new teacher
     create(req, res){
