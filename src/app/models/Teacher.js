@@ -2,16 +2,6 @@ const {date} = require('../../lib/utils')
 const db = require('../../config/db')
 
 module.exports = {
-    index(callback){
-        db.query(`SELECT teachers.*, count(students) AS total_students FROM teachers
-        LEFT JOIN students ON (teachers.id = students.teacher_id)
-        GROUP BY teachers.id
-        ORDER BY total_students DESC`, (err, results)=>{
-            if(err) throw `Database error ${err}`
-
-            callback(results.rows)
-        })
-    },
     create(data, callback){
         const query = `INSERT INTO teachers (
             avatar_url,
@@ -85,6 +75,23 @@ module.exports = {
             if(err) throw `Database error ${err}`
 
            return callback()
+        })
+    },
+    pagination(params){
+        let filterQuery = '',
+            totalQuery = `(SELECT count(*) FROM teachers) as total`
+
+        if(params.filter){
+            filterQuery = `WHERE teachers.name ILIKE '%${params.filter}%' OR teachers.subjects ILIKE '%${params.filter}%'`
+            totalQuery = `(SELECT count(*) FROM teachers ${filterQuery}) as total`
+        }
+        let query = `SELECT teachers.*, ${totalQuery}, count(students) AS total_students FROM teachers
+        LEFT JOIN students ON (teachers.id = students.teacher_id) ${filterQuery}
+        GROUP BY teachers.id LIMIT $1 OFFSET $2`
+
+        db.query(query, [params.limit, params.offset],(err, results)=>{
+            if(err) throw `Database error ${err}`
+            params.callback(results.rows)
         })
     }
 }

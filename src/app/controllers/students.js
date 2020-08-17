@@ -4,8 +4,11 @@ const Student = require("../models/Student")
 module.exports = {
     // Displays the students on the home page
     index(req, res){
-        Student.index((allstudents)=>{
-
+        let {filter, limit, page} = req.query
+        limit = limit || 4
+        page = page || 1 
+        let offset = limit * (page - 1)
+        const params = {filter, limit, page, offset, callback(allstudents){
             const students =  allstudents.map((student)=>{
                 const index = {
                     ...student,
@@ -13,8 +16,11 @@ module.exports = {
                 }
                 return index
             })
-            return res.render('students/index', {students})
-        })
+            const pagination = {total: Math.ceil(students[0].total / limit), page}
+            return res.render('students/index', {students, filter, pagination})
+            
+        }}
+        Student.pagination(params)
     },
     // Route to the page to create a new student
     create(req, res){

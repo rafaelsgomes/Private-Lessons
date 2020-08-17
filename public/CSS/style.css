@@ -4,7 +4,7 @@
     font-size: 16px;
 }
 
-:root{
+:root {
     --primary-color: #313541;
     --secondary-color: #242730;
     --tertiary-color: #e8deee;
@@ -18,7 +18,7 @@ body {
     background-color: var(--primary-color); 
 }
 
-body::after{
+body::after {
     content: '';
     background: url(../assets/scenic-view-of-mountains-during-dawn-1261728.jpg) no-repeat center center / cover;
     position: fixed;
@@ -42,17 +42,17 @@ header {
     font-size: 22px;
 }
 
-.links a{
+.links a {
     text-decoration: none;
     color: var(--tertiary-color);
     position: relative;
 }
 
-.links a + a{
+.links a + a {
     margin-left: 32px;
 }
 
-.links a.active{
+.links a.active {
     font-weight: bold;
     color: var(--quaternary-color);
 }
@@ -78,7 +78,7 @@ header {
 
 /* Card */
 
-.card{
+.card {
     width: 900px;
     min-height: 400px;
     background-color: rgba(232, 222, 238, 0.05);
@@ -97,7 +97,7 @@ header {
     animation-fill-mode: forwards;
 }
 
-.card .avatar{
+.card .avatar {
     border-radius: 16px 0 0 16px;
 }
 
@@ -147,7 +147,7 @@ header {
     font-weight: bold;
 }
 
-.details .item span{
+.details .item span {
     display: inline-block;
     background-color: var(--quaternary-color);
     color: var(--tertiary-color);
@@ -159,7 +159,7 @@ header {
     border-radius: 16px;
 }
 
-.details .item span:hover{
+.details .item span:hover {
     background-color: var(--primary-color);
 }
 
@@ -206,14 +206,14 @@ header {
     border-radius: 8px;
 }
 
-.edit{
+.edit {
     display: block;
     box-sizing: border-box;
     text-decoration: none;
     text-align: center;
 }
 
-.details button[type='submit']:hover, .edit:hover{
+.details button[type='submit']:hover, .edit:hover {
     background-color: var(--primary-color);
 }
 
@@ -228,7 +228,9 @@ header {
 /* Listar Professores */
 
 .table-info {
-    display: block;
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
+    gap: 16px;
     box-sizing: border-box;
     padding: 16px 32px;
     font-weight: bold;
@@ -237,9 +239,10 @@ header {
 
 .table-info table {
     border-spacing: 0;
+    margin: auto 0;
 }
 
-.table-info thead tr th{
+.table-info thead tr th {
     padding: 8px 16px;
     text-align: left;
 }
@@ -248,12 +251,12 @@ header {
     color: #999;
 }
 
-td{
+td {
     color: var(--tertiary-color);
     padding: 20px 16px;
 }
 
-.table-info tbody tr td{
+.table-info tbody tr td {
     background-color: rgba(36, 39, 48, 0.5);
     align-items: center;
     
@@ -264,7 +267,7 @@ td{
     grid-template-columns: 64px 1fr;
 }
 
-.table-info tbody tr td:first-child span{
+.table-info tbody tr td:first-child span {
     width: 40px;
     height: 40px;
     background-position: center;
@@ -273,7 +276,7 @@ td{
     
 }
 
-.table-info tbody tr td:last-child a, .table-info a, .table-header button[type="submit"]{
+.table-info tbody tr td:last-child a, .table-info a, .table-header button[type="submit"] {
     background-color: var(--quaternary-color);
     border-radius: 4px;
     padding: 8px 16px;
@@ -282,39 +285,40 @@ td{
     text-align: center;
 }
 
-.table-info > a{
+.table-info > a {
     display: inline-block;
     margin-bottom: 16px;
     margin-left: 73%;
 }
 
-.table-info tbody tr td:last-child a:hover, .table-info a:hover{
+.table-info tbody tr td:last-child a:hover, .table-info a:hover {
     transition: background 350ms;
     background-color: var(--secondary-color);
 }
-.table-info thead tr th:last-child, td:last-child{
+.table-info thead tr th:last-child, td:last-child {
     text-align: center;
 }
 
 /* Filter */
-.table-header{
+.table-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 32px;
+    height: 40px;
+    margin: auto 0;
 }
 
-.table-header a{
+.table-header a {
     width: 200px;
     margin-left: auto;
 }
 
-.table-header form{
+.table-header form {
     display: grid;
     grid-template-columns: 1fr 150px;
     gap: 8px;
 }
 
-.table-header form input{
+.table-header form input {
     box-sizing: border-box;
     height: 100%;
     outline: none;
@@ -328,8 +332,24 @@ td{
     font-weight: bold;
 }
 
-.table-header form button[type="submit"]{
+.table-header form button[type="submit"] {
     border: none;
     cursor: pointer;
     font-weight: bold;
+}
+
+/* Pagination */
+.pagination {
+    align-self: center;
+    color: var(--tertiary-color);
+    margin: 0 auto;
+}
+
+.pagination a {
+    background: none;
+}
+
+.pagination a:hover {
+    background: none;
+    color: var(--quaternary-color);
 }

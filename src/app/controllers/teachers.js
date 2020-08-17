@@ -4,17 +4,16 @@ const Teacher = require("../models/Teacher")
 module.exports = {
     // Displays the teachers on the home page
     index(req, res){
-        const {filter} = req.query
-
-        if(filter){
-            Teacher.filter(filter, (teachers)=>{
-                return res.render('teachers/index', {teachers, filter})
-            })
-        }else{
-            Teacher.index((teachers)=>{
-                return res.render('teachers/index', {teachers})
-            })
-        }
+        let {filter, limit, page} = req.query
+        limit = limit || 4
+        page = page || 1 
+        let offset = limit * (page - 1)
+        const params = {filter, limit, page, offset, callback(teachers){
+            const pagination = {total: Math.ceil(teachers[0].total / limit), page}
+            return res.render('teachers/index', {teachers, filter, pagination})
+            
+        }}
+        Teacher.pagination(params)
     },
     // Route to the page to create a new teacher
     create(req, res){
